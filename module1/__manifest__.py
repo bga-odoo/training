@@ -14,10 +14,15 @@
 
     'data' : [
         
-        'data.xml'
+        'data/data.xml',
+        'data/demo.xml',
+        'security/ir.model.access.csv',
+        'views/views.xml',
     ],
 
-    'demo' : [],
+    'demo' : [
+        
+    ],
 
 
 }

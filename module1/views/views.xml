@@ -1,0 +1,50 @@
+<odoo>
+
+        <record model="ir.ui.view" id="acedemy_tree_view">
+            <field name="name">academy_tree</field>
+            <field name="model">openacademy</field>
+            <field name="arch" type="xml">
+                <tree string="Academy Tree">
+                            <field name="name"/>
+                            <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="academy_form_view">
+            <field name="name">academy_form</field>
+            <field name="model">openacademy</field>
+            <field name="arch" type="xml">
+                <form string="Academy Form">
+                    <sheet>
+                        <group>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="description"/>
+                            </group>
+                            <group>
+                                <field name="full_description"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="academy_search_view">
+            <field name="name">academy.search</field>
+            <field name="model">openacademy</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="description"/>
+                </search>
+            </field>
+        </record>
+
+
+</odoo>

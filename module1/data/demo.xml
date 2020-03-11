@@ -1,0 +1,12 @@
+<odoo>
+
+    <record id="academy1" model="openacademy">
+        <field name="name">Academy 1</field>
+        <field name="description">My first academy description</field>
+    </record>
+
+    <record id="academy2" model="openacademy">
+        <field name="name">Academy 2</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,29 @@
+<odoo>
+
+<record model="ir.actions.act_window" id="action_academy">
+    <field name="name">Academy</field>
+    <field name="res_model">openacademy</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<record model="ir.actions.act_window" id="action_course">
+    <field name="name">Courses</field>
+    <field name="res_model">course</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<record model="ir.actions.act_window" id="action_session">
+    <field name="name">Session</field>
+    <field name="res_model">session</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem id="main_menu_academy" name="Academies" sequence="10" action="action_academy"/>
+
+<menuitem id="menu_academy" name="Academies" sequence="10" parent="main_menu_academy" action="action_academy"/>
+
+<menuitem id="menu_course" name="Courses" sequence="20" parent="main_menu_academy" action="action_course"/>
+
+<menuitem id="menu_session" name="Sessions" sequence="30" parent="main_menu_academy" action="action_session"/>
+
+</odoo>
