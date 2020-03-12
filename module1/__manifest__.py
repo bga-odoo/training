@@ -16,8 +16,10 @@
         
         'data/data.xml',
         'data/demo.xml',
+        'data/partner_category.xml',
         'security/ir.model.access.csv',
         'views/views.xml',
+        'views/partner.xml',
     ],
 
     'demo' : [
