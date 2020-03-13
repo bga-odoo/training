@@ -2,6 +2,7 @@
 
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
+from datetime import timedelta
 
 class openacademy(models.Model):
     _name = 'openacademy'
@@ -82,6 +83,19 @@ class session(models.Model):
 
     active = fields.Boolean(string="Active", default=True)
     start_date = fields.Date(default=fields.Date.today)
+    end_date = fields.Date(string="End date", default=fields.Date.today, compute="_get_end_date")
+
+    @api.depends('start_date','duration')
+    def _get_end_date(self):
+        for record in self:
+            if record.start_date:
+                duration = timedelta(days=record.duration, seconds=-1)
+                record['end_date'] = record.start_date + duration
+            else:
+                record['end_date'] = False
+
+    color = fields.Integer()
+
     
 class tag(models.Model):
     _name = 'tag'

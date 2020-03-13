@@ -15,7 +15,7 @@
 <record model="ir.actions.act_window" id="action_session">
     <field name="name">Session</field>
     <field name="res_model">session</field>
-    <field name="view_mode">tree,form</field>
+    <field name="view_mode">tree,form,calendar,gantt,kanban</field>
 </record>
 
 <menuitem id="main_menu_academy" name="Academies" sequence="10" action="action_academy"/>
@@ -25,5 +25,28 @@
 <menuitem id="menu_course" name="Courses" sequence="20" parent="main_menu_academy" action="action_course"/>
 
 <menuitem id="menu_session" name="Sessions" sequence="30" parent="main_menu_academy" action="action_session"/>
+
+<record model="res.groups" id="session_manager">
+    <field name="name">Session / Manager</field>
+</record>
+
+<record model="res.groups" id="session_user">
+    <field name="name">Session / User</field>
+</record>
+
+<record model="res.groups" id="academy_manager">
+    <field name="name">Academy / Manager</field>
+</record>
+
+<record model="ir.rule" id="remove_delete_write_for_not_responsible">
+    <field name="name">Only responsible can delete and write</field>
+    <field name="model_id" ref="model_course"/>
+    <field name="groups" eval="[(4, ref('session_manager'))]"/>
+    <field name="perm_read" eval="0"/>
+    <field name="perm_write" eval="1"/>
+    <field name="perm_create" eval="0"/>
+    <field name="perm_unlink" eval="1" />
+    <field name="domain_force">['|',('responsible_id','=', user.id),('responsible_id', '=', False)]</field>
+</record>
 
 </odoo>
